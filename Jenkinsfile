@@ -7,7 +7,7 @@ pipeline {
     }
 
   stages {
-
+    // Clone the github repo on jenkins workspace
     stage('Checkout SCM') {
       steps {
         checkout([$class: 'GitSCM', branches: [
@@ -18,6 +18,7 @@ pipeline {
       }
     }
 
+    //Describe the instance status and stop the instance
     stage("Describe and stop the instance") {
       steps {
         withCredentials([
@@ -31,7 +32,7 @@ pipeline {
         
       }
     }
-
+    //change the instance type as per the input parameter given before running the job
     stage("Change the instance type") {
       steps {
         withCredentials([
@@ -44,6 +45,7 @@ pipeline {
       }
     }
 
+    //Start the instance (testing_server)
     stage("Start the instance") {
         steps {
         withCredentials([
@@ -56,14 +58,16 @@ pipeline {
 
       }
     }
-
+    //Run ansible playbook on the testing_server
     stage('run ansible playbook') {
       steps {
+        //here main.yml file is in the cloned repository
         ansiblePlaybook credentialsId: 'ansadmin', disableHostKeyChecking: true, installation: 'ansible', playbook: 'main.yml'
       }
     }
 
-    stage("Stop the instance and flip back instance type") {
+    //stop the instance the change the instance type to t2.micro
+    stage("Stop the instance and flip back to previous instance type") {
       steps {
         withCredentials([
           [$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
