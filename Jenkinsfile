@@ -46,12 +46,9 @@ pipeline {
         ]) {
           AWS("--region=us-east-1 ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].[State.Name]' --o text")
         }
-          
+          echo env.INSTANCE_STATE
         }
-        steps{
-            echo env.INSTANCE_STATE
-        }
-        
+                
         sh "sleep 25"
     }
 
