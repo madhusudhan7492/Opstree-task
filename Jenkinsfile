@@ -1,6 +1,7 @@
 @Library('github.com/releaseworks/jenkinslib') _
 pipeline {
   agent any
+  
   stages {
 
     stage('Checkout SCM') {
@@ -31,12 +32,12 @@ pipeline {
           AWS("--region=us-east-1 ec2 stop-instances --instance-ids $Instance_Id")
         }
 
-        INSTANCE_STATE = withCredentials([
+        env.INSTANCE_STATE = withCredentials([
           [$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
         ]) {
           AWS("--region=us-east-1 ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].State.Name'")
         }
-        sh "echo $INSTANCE_STATE"
+        sh "echo ${INSTANCE_STATE}"
 
         sh "sleep 25"
       }
