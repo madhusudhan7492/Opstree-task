@@ -1,6 +1,10 @@
 @Library('github.com/releaseworks/jenkinslib') _
 pipeline {
   agent any
+
+  environment {
+       INSTANCE_STATE = ''
+   }
   
   stages {
 
@@ -38,7 +42,7 @@ pipeline {
         ]) {
           AWS("--region=us-east-1 ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].[State.Name]' --o text")
         }
-        sh "echo ${INSTANCE_STATE}"
+          echo env.INSTANCE_STATE
         }
         
 
