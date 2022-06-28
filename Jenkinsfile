@@ -81,11 +81,7 @@ pipeline {
 
     stage("Run the ansible playbook"){
         steps{
-            dir('webserver1'){
-                sh "sudo su - ansadmin"
-                sh "ansible-playbook main.yaml"
-            }
-            
+            ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'main.yml'            
         }
     }
 
