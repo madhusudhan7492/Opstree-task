@@ -1,0 +1,8 @@
+- name: Playbook
+  hosts: dev
+  become: yes
+  tasks:
+    - name: ensure tree is at the latest version
+      yum:
+        name: tree
+        state: latest
