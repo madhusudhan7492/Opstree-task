@@ -24,9 +24,9 @@ pipeline {
         }
         sh "echo 'Wait for 25 seconds to let the instance turn into stop state'"
         sh "sleep 25"
-        sh "echo 'After stopping the instance'" {
-          AWS("--region=us-east-1 ec2 describe-instances --instance-ids $Instance_Id --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== 'Name']|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table")
-        }
+        sh "echo 'After stopping the instance'" 
+        AWS("--region=us-east-1 ec2 describe-instances --instance-ids $Instance_Id --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== 'Name']|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table")
+        
       }
     }
 
