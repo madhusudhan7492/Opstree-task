@@ -12,7 +12,10 @@ pipeline{
       }
     }
         stage('run playbook'){
-            ansiblePlaybook credentialsId: 'ansadmin', disableHostKeyChecking: true, installation: 'ansible', playbook: 'main.yml'
+            steps{
+                ansiblePlaybook credentialsId: 'ansadmin', disableHostKeyChecking: true, installation: 'ansible', playbook: 'main.yml'
+            }
+            
 
         }
     }
