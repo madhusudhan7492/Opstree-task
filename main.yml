@@ -1,8 +1,11 @@
-- name: Playbook
+- name: Install httpd
   hosts: dev
   become: yes
   tasks:
-    - name: ensure tree is at the latest version
+    - name: ensure httpd is installed
       yum:
-        name: docker
-        state: latest
+        name: httpd
+        state: installed
+
+   
+  
