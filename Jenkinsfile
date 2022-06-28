@@ -82,7 +82,7 @@ pipeline {
     stage("Run the ansible playbook"){
         steps{
             dir('webserver1'){
-                sh "su - ansadmin"
+                sh "sudo su - ansadmin"
                 sh "ansible-playbook main.yaml"
             }
             
