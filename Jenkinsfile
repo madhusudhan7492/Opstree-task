@@ -81,7 +81,7 @@ pipeline {
 
     stage("Run the ansible playbook"){
         steps{
-            dir('webserver1'){
+            dir('web-server'){
                 git credentialsId: 'Github_creds', url: 'https://github.com/madhusudhan7492/Opstree-task.git'
                 ansiblePlaybook credentialsId: 'private-key-1', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'main.yml'
             }
