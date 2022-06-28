@@ -1,5 +1,0 @@
-- name: copy index.html file
-  become: yes
-  copy:
-    src:  index.html
-    dest: /var/www/html/index.html

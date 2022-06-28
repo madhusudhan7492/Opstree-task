@@ -1,4 +1,0 @@
----
-- include: playbooks/install.yaml
-- include: playbooks/copyhttpd.yaml
-- include: playbooks/copyfile.yaml
