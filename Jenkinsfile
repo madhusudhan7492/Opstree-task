@@ -1,3 +1,4 @@
+@Library('github.com/releaseworks/jenkinslib') _
 pipeline {
   agent any
    stages {
@@ -8,15 +9,19 @@ pipeline {
         }
       }
 
-      stage('Describe the instance'){
-        steps{
-            script{
-                sh "aws ec2 describe-instances"
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        AWS("--region=us-east-1 ec2 describe-instances")
+    }
 
-            }
+    //   stage('Describe the instance'){
+    //     steps{
+    //         script{
+    //             sh "aws ec2 describe-instances"
+
+    //         }
             
-        }
-      }    
+    //     }
+    //   }    
          
    } 
 }
