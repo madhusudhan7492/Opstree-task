@@ -11,7 +11,7 @@ pipeline {
       stage('Describe the instance'){
         steps{
             script{
-                sh "aws ec2 describe-instances --query 'Reservations[*].Instances[*].{PublicIP:PublicIpAddress,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name,InstanceID:InstanceId}' --filters Name=instance-state-name,Values=running --output table"
+                sh "aws ec2 describe-instances"
 
             }
             
