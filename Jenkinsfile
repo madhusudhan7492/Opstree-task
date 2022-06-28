@@ -1,11 +1,7 @@
 @Library('github.com/releaseworks/jenkinslib') _
 pipeline {
   agent any
-
-  environment {
-       INSTANCE_STATE = ''
-   }
-  
+ 
   stages {
 
     stage('Checkout SCM') {
@@ -34,23 +30,13 @@ pipeline {
           [$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
         ]) {
           AWS("--region=us-east-1 ec2 stop-instances --instance-ids $Instance_Id")
-        }
-     
+        }  
+        
+        sh "sleep 25"
       }
     }
 
-    stage("Check if instance is stopped"){
-        script{
-            INSTANCE_STATE = withCredentials([
-          [$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
-        ]) {
-          AWS("--region=us-east-1 ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].[State.Name]' --o text")
-        }
-          echo env.INSTANCE_STATE
-        }
-                
-        sh "sleep 25"
-    }
+ 
 
     stage("Describe the instance after stopping") {
       steps {
