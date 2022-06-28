@@ -20,7 +20,7 @@ pipeline {
       stage("Stop the instance"){
         steps{
             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        AWS("--region=us-east-1 ec2 stop-instances --instance-ids i-095c6b04cca499258")
+        AWS("--region=us-east-1 ec2 stop-instances --instance-ids $Instance_Id")
          }
 
          sh "sleep 20"
