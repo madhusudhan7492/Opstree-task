@@ -2,6 +2,7 @@
 pipeline {
   agent any
 
+    //environment varible 
   environment {
         OLD_INSTANCE_TYPE = 't2.micro'
     }
