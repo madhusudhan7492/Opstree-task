@@ -52,12 +52,12 @@ for instance in Instance_Id:
                 describe_current_state_instance = client.describe_instances(InstanceIds=[instance])
                 current_state = describe_current_state_instance['Reservations'][0]['Instances'][0]['State']['Name']
                 print("Current instance State is::  ",current_state)
-                file1 = subprocess.run(["ansible-playbook","main.yml"])
-                print(file1)
                 print("Starting the instance")
                 start_response = client.start_instances(InstanceIds = [instance])
                 time.sleep(25)
                 current_state = start_response['StartingInstances'][0]['CurrentState']['Name']
+                file1 = subprocess.run(["ansible-playbook","main.yml"])
+                print(file1)
 
             
             
