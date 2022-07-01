@@ -40,11 +40,11 @@ Fetching upstream changes from https://github.com/madhusudhan7492/Opstree-task.g
 using GIT_ASKPASS to set credentials Github credentials
  > git fetch --tags --force --progress -- https://github.com/madhusudhan7492/Opstree-task.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
-Checking out Revision 571dbf2c945c28827367c721bffd69904b48ecb3 (refs/remotes/origin/master)
+Checking out Revision ca29cb009fdae290b3888d5120588c1346f08a4f (refs/remotes/origin/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 571dbf2c945c28827367c721bffd69904b48ecb3 # timeout=10
-Commit message: "updated Jenkinsfile with comments"
- > git rev-list --no-walk aaef5c97a243c55f7cf720611b57d3189f073cff # timeout=10
+ > git checkout -f ca29cb009fdae290b3888d5120588c1346f08a4f # timeout=10
+Commit message: "Merge branch 'master' of https://github.com/madhusudhan7492/Opstree-task"
+ > git rev-list --no-walk 571dbf2c945c28827367c721bffd69904b48ecb3 # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -66,10 +66,10 @@ Fetching upstream changes from https://github.com/madhusudhan7492/Opstree-task.g
 using GIT_ASKPASS to set credentials Github credentials
  > git fetch --tags --force --progress -- https://github.com/madhusudhan7492/Opstree-task.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
-Checking out Revision 571dbf2c945c28827367c721bffd69904b48ecb3 (refs/remotes/origin/master)
+Checking out Revision ca29cb009fdae290b3888d5120588c1346f08a4f (refs/remotes/origin/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 571dbf2c945c28827367c721bffd69904b48ecb3 # timeout=10
-Commit message: "updated Jenkinsfile with comments"
+ > git checkout -f ca29cb009fdae290b3888d5120588c1346f08a4f # timeout=10
+Commit message: "Merge branch 'master' of https://github.com/madhusudhan7492/Opstree-task"
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
@@ -88,7 +88,7 @@ Masking supported pattern matches of $AWS_SECRET_ACCESS_KEY
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top e046b6eb3ec62f6bfd9c8a4d338e1c047c017ac8fd8397f2f8f75e986d99f950 -eo pid,comm
+$ docker top 0e74ef775f8875b873e4bcf8e0c86a2b423d0e9761bc867bf658f932258ad3e0 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --query 'Reservations[*].Instances[*].{PublicIP:PublicIpAddress,Name:Tags[?Key==Name]|[0].Value,Status:State.Name,InstanceID:InstanceId}' --filters 'Name=instance-state-name,Values=running' --output table
@@ -101,8 +101,8 @@ $ docker top e046b6eb3ec62f6bfd9c8a4d338e1c047c017ac8fd8397f2f8f75e986d99f950 -e
 |  i-095c6b04cca499258 |  None |  34.195.199.207  |  running |
 +----------------------+-------+------------------+----------+
 [Pipeline] }
-$ docker stop --time=1 e046b6eb3ec62f6bfd9c8a4d338e1c047c017ac8fd8397f2f8f75e986d99f950
-$ docker rm -f e046b6eb3ec62f6bfd9c8a4d338e1c047c017ac8fd8397f2f8f75e986d99f950
+$ docker stop --time=1 0e74ef775f8875b873e4bcf8e0c86a2b423d0e9761bc867bf658f932258ad3e0
+$ docker rm -f 0e74ef775f8875b873e4bcf8e0c86a2b423d0e9761bc867bf658f932258ad3e0
 [Pipeline] // withDockerContainer
 [Pipeline] isUnix
 [Pipeline] withEnv
@@ -115,7 +115,7 @@ $ docker rm -f e046b6eb3ec62f6bfd9c8a4d338e1c047c017ac8fd8397f2f8f75e986d99f950
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top aaef0902159ea423a8ed33268cf3451e5d320be98432c5ced3d0b738dcf76847 -eo pid,comm
+$ docker top 62b86c79854ef8cd8993e6f0c70d0315c720af184dc1744f3ea8b93b247511af -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 stop-instances --instance-ids i-095c6b04cca499258
@@ -135,8 +135,8 @@ $ docker top aaef0902159ea423a8ed33268cf3451e5d320be98432c5ced3d0b738dcf76847 -e
     ]
 }
 [Pipeline] }
-$ docker stop --time=1 aaef0902159ea423a8ed33268cf3451e5d320be98432c5ced3d0b738dcf76847
-$ docker rm -f aaef0902159ea423a8ed33268cf3451e5d320be98432c5ced3d0b738dcf76847
+$ docker stop --time=1 62b86c79854ef8cd8993e6f0c70d0315c720af184dc1744f3ea8b93b247511af
+$ docker rm -f 62b86c79854ef8cd8993e6f0c70d0315c720af184dc1744f3ea8b93b247511af
 [Pipeline] // withDockerContainer
 [Pipeline] }
 [Pipeline] // withCredentials
@@ -163,7 +163,7 @@ Masking supported pattern matches of $AWS_SECRET_ACCESS_KEY
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top e58aa107dc5ba9ec3622499036bfb78c28c29b4f7950eb949c4fc74fbc314fb1 -eo pid,comm
+$ docker top 86c9733ba27702f1aa1fe301c814af551afd04b51a385614e2c43c8b4d32c580 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== Name]|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table
@@ -175,8 +175,8 @@ $ docker top e58aa107dc5ba9ec3622499036bfb78c28c29b4f7950eb949c4fc74fbc314fb1 -e
 |  i-095c6b04cca499258 |  t2.micro     |  None |  34.195.199.207 |  stopped  |
 +----------------------+---------------+-------+-----------------+-----------+
 [Pipeline] }
-$ docker stop --time=1 e58aa107dc5ba9ec3622499036bfb78c28c29b4f7950eb949c4fc74fbc314fb1
-$ docker rm -f e58aa107dc5ba9ec3622499036bfb78c28c29b4f7950eb949c4fc74fbc314fb1
+$ docker stop --time=1 86c9733ba27702f1aa1fe301c814af551afd04b51a385614e2c43c8b4d32c580
+$ docker rm -f 86c9733ba27702f1aa1fe301c814af551afd04b51a385614e2c43c8b4d32c580
 [Pipeline] // withDockerContainer
 [Pipeline] isUnix
 [Pipeline] withEnv
@@ -189,13 +189,13 @@ $ docker rm -f e58aa107dc5ba9ec3622499036bfb78c28c29b4f7950eb949c4fc74fbc314fb1
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top bf487f23c4aca3fe86b179a6cd2488241b32d540bf65235ed68e96b2cfbabc61 -eo pid,comm
+$ docker top 979954ec1acf34cf2b2ee41a903d340d5ffdb1d6158bdfd9716d66b0e694e5f0 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 modify-instance-attribute --instance-id i-095c6b04cca499258 --instance-type '{"Value": "t2.nano"}'
 [Pipeline] }
-$ docker stop --time=1 bf487f23c4aca3fe86b179a6cd2488241b32d540bf65235ed68e96b2cfbabc61
-$ docker rm -f bf487f23c4aca3fe86b179a6cd2488241b32d540bf65235ed68e96b2cfbabc61
+$ docker stop --time=1 979954ec1acf34cf2b2ee41a903d340d5ffdb1d6158bdfd9716d66b0e694e5f0
+$ docker rm -f 979954ec1acf34cf2b2ee41a903d340d5ffdb1d6158bdfd9716d66b0e694e5f0
 [Pipeline] // withDockerContainer
 [Pipeline] isUnix
 [Pipeline] withEnv
@@ -208,7 +208,7 @@ $ docker rm -f bf487f23c4aca3fe86b179a6cd2488241b32d540bf65235ed68e96b2cfbabc61
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top 6bce3e11ef6d1031c54b9d839a90d3e5ac6ae1ab5ccce75b7941c85b6db8f707 -eo pid,comm
+$ docker top e67b7d2a3e886b951e7e14002d5dc1357a8c66ebf108cf6bb7d24f19333e6a25 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== Name]|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table
@@ -220,8 +220,8 @@ $ docker top 6bce3e11ef6d1031c54b9d839a90d3e5ac6ae1ab5ccce75b7941c85b6db8f707 -e
 |  i-095c6b04cca499258 |  t2.nano      |  None |  34.195.199.207 |  stopped  |
 +----------------------+---------------+-------+-----------------+-----------+
 [Pipeline] }
-$ docker stop --time=1 6bce3e11ef6d1031c54b9d839a90d3e5ac6ae1ab5ccce75b7941c85b6db8f707
-$ docker rm -f 6bce3e11ef6d1031c54b9d839a90d3e5ac6ae1ab5ccce75b7941c85b6db8f707
+$ docker stop --time=1 e67b7d2a3e886b951e7e14002d5dc1357a8c66ebf108cf6bb7d24f19333e6a25
+$ docker rm -f e67b7d2a3e886b951e7e14002d5dc1357a8c66ebf108cf6bb7d24f19333e6a25
 [Pipeline] // withDockerContainer
 [Pipeline] }
 [Pipeline] // withCredentials
@@ -243,7 +243,7 @@ Masking supported pattern matches of $AWS_SECRET_ACCESS_KEY
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top e4b981e289f10057424fc32a8bf6c980b356f320646a7dafcd87b8a81418afa8 -eo pid,comm
+$ docker top cad8005b7ce69357cded2dadcab6b793aa1f04adb508876580cd03d713a42874 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 start-instances --instance-ids i-095c6b04cca499258
@@ -263,8 +263,8 @@ $ docker top e4b981e289f10057424fc32a8bf6c980b356f320646a7dafcd87b8a81418afa8 -e
     ]
 }
 [Pipeline] }
-$ docker stop --time=1 e4b981e289f10057424fc32a8bf6c980b356f320646a7dafcd87b8a81418afa8
-$ docker rm -f e4b981e289f10057424fc32a8bf6c980b356f320646a7dafcd87b8a81418afa8
+$ docker stop --time=1 cad8005b7ce69357cded2dadcab6b793aa1f04adb508876580cd03d713a42874
+$ docker rm -f cad8005b7ce69357cded2dadcab6b793aa1f04adb508876580cd03d713a42874
 [Pipeline] // withDockerContainer
 [Pipeline] sh
 + sleep 25
@@ -279,7 +279,7 @@ $ docker rm -f e4b981e289f10057424fc32a8bf6c980b356f320646a7dafcd87b8a81418afa8
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top cf9b93a81c5ab39934aaf9149d2b512c4cbdff3f2c3890f98d14bf91c19cacfc -eo pid,comm
+$ docker top 0876e0e5bbead829711d2ff29bc35a3d9fd31f836fa3be209633dd41fcfb9a99 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== Name]|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table
@@ -291,8 +291,8 @@ $ docker top cf9b93a81c5ab39934aaf9149d2b512c4cbdff3f2c3890f98d14bf91c19cacfc -e
 |  i-095c6b04cca499258 |  t2.nano      |  None |  34.195.199.207 |  running  |
 +----------------------+---------------+-------+-----------------+-----------+
 [Pipeline] }
-$ docker stop --time=1 cf9b93a81c5ab39934aaf9149d2b512c4cbdff3f2c3890f98d14bf91c19cacfc
-$ docker rm -f cf9b93a81c5ab39934aaf9149d2b512c4cbdff3f2c3890f98d14bf91c19cacfc
+$ docker stop --time=1 0876e0e5bbead829711d2ff29bc35a3d9fd31f836fa3be209633dd41fcfb9a99
+$ docker rm -f 0876e0e5bbead829711d2ff29bc35a3d9fd31f836fa3be209633dd41fcfb9a99
 [Pipeline] // withDockerContainer
 [Pipeline] }
 [Pipeline] // withCredentials
@@ -301,7 +301,7 @@ $ docker rm -f cf9b93a81c5ab39934aaf9149d2b512c4cbdff3f2c3890f98d14bf91c19cacfc
 [Pipeline] stage
 [Pipeline] { (run ansible playbook)
 [Pipeline] ansiblePlaybook
-[Opstree-pipeline] $ /usr/bin/ansible-playbook main.yml --private-key /var/lib/jenkins/workspace/Opstree-pipeline/ssh3324530386175207087.key -u ansadmin
+[Opstree-pipeline] $ /usr/bin/ansible-playbook main.yml --private-key /var/lib/jenkins/workspace/Opstree-pipeline/ssh17657837056824485361.key -u ansadmin
 
 PLAY [Install httpd] ***********************************************************
 
@@ -312,19 +312,60 @@ interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
 ce_appendices/interpreter_discovery.html for more information.
 ok: [34.195.199.207]
 
-TASK [ensure httpd is installed] ***********************************************
+TASK [Ensure httpd is installed] ***********************************************
 ok: [34.195.199.207]
 
 TASK [start httpd service] *****************************************************
+ok: [34.195.199.207]
+
+TASK [checking httpd service status] *******************************************
 changed: [34.195.199.207]
 
+TASK [showing report] **********************************************************
+ok: [34.195.199.207] => {
+    "result": {
+        "changed": true, 
+        "cmd": [
+            "systemctl", 
+            "status", 
+            "httpd"
+        ], 
+        "delta": "0:00:00.041195", 
+        "end": "2022-07-01 12:39:45.678845", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2022-07-01 12:39:45.637650", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "? httpd.service - The Apache HTTP Server\n   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)\n   Active: active (running) since Fri 2022-07-01 12:39:15 UTC; 30s ago\n     Docs: man:httpd.service(8)\n Main PID: 2899 (httpd)\n   Status: \"Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec\"\n   CGroup: /system.slice/httpd.service\n           ??2899 /usr/sbin/httpd -DFOREGROUND\n           ??2925 /usr/sbin/httpd -DFOREGROUND\n           ??2926 /usr/sbin/httpd -DFOREGROUND\n           ??2927 /usr/sbin/httpd -DFOREGROUND\n           ??2928 /usr/sbin/httpd -DFOREGROUND\n           ??2929 /usr/sbin/httpd -DFOREGROUND\n\nJul 01 12:39:15 ip-172-31-95-104.ec2.internal systemd[1]: Starting The Apache HTTP Server...\nJul 01 12:39:15 ip-172-31-95-104.ec2.internal systemd[1]: Started The Apache HTTP Server.", 
+        "stdout_lines": [
+            "? httpd.service - The Apache HTTP Server", 
+            "   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)", 
+            "   Active: active (running) since Fri 2022-07-01 12:39:15 UTC; 30s ago", 
+            "     Docs: man:httpd.service(8)", 
+            " Main PID: 2899 (httpd)", 
+            "   Status: \"Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec\"", 
+            "   CGroup: /system.slice/httpd.service", 
+            "           ??2899 /usr/sbin/httpd -DFOREGROUND", 
+            "           ??2925 /usr/sbin/httpd -DFOREGROUND", 
+            "           ??2926 /usr/sbin/httpd -DFOREGROUND", 
+            "           ??2927 /usr/sbin/httpd -DFOREGROUND", 
+            "           ??2928 /usr/sbin/httpd -DFOREGROUND", 
+            "           ??2929 /usr/sbin/httpd -DFOREGROUND", 
+            "", 
+            "Jul 01 12:39:15 ip-172-31-95-104.ec2.internal systemd[1]: Starting The Apache HTTP Server...", 
+            "Jul 01 12:39:15 ip-172-31-95-104.ec2.internal systemd[1]: Started The Apache HTTP Server."
+        ]
+    }
+}
+
 PLAY RECAP *********************************************************************
-34.195.199.207             : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+34.195.199.207             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
-[Pipeline] { (Stop the instance and flip back to previous instance type)
+[Pipeline] { (Stop the instance and flip back to previous instance type and start the instance)
 [Pipeline] withCredentials
 Masking supported pattern matches of $AWS_SECRET_ACCESS_KEY
 [Pipeline] {
@@ -339,7 +380,7 @@ Masking supported pattern matches of $AWS_SECRET_ACCESS_KEY
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top 67ceabfa6fc4c0ebc19684046f7e79b7d164945a5637c6936f917ca9e4176738 -eo pid,comm
+$ docker top 0b578c28320d0361c755fb4dcf98d248e10a045d15543973c1b336fd19cff5e8 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 stop-instances --instance-ids i-095c6b04cca499258
@@ -359,8 +400,8 @@ $ docker top 67ceabfa6fc4c0ebc19684046f7e79b7d164945a5637c6936f917ca9e4176738 -e
     ]
 }
 [Pipeline] }
-$ docker stop --time=1 67ceabfa6fc4c0ebc19684046f7e79b7d164945a5637c6936f917ca9e4176738
-$ docker rm -f 67ceabfa6fc4c0ebc19684046f7e79b7d164945a5637c6936f917ca9e4176738
+$ docker stop --time=1 0b578c28320d0361c755fb4dcf98d248e10a045d15543973c1b336fd19cff5e8
+$ docker rm -f 0b578c28320d0361c755fb4dcf98d248e10a045d15543973c1b336fd19cff5e8
 [Pipeline] // withDockerContainer
 [Pipeline] sh
 + sleep 25
@@ -375,7 +416,7 @@ $ docker rm -f 67ceabfa6fc4c0ebc19684046f7e79b7d164945a5637c6936f917ca9e4176738
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top 6ddd50f5749885c382bf73e90380729cf4cfb2889160fd6579500c88330de872 -eo pid,comm
+$ docker top 7c5e68a3e63db7c009685221fc37d4a94bdc7b8bda14e41532f05117f940a008 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== Name]|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table
@@ -387,8 +428,8 @@ $ docker top 6ddd50f5749885c382bf73e90380729cf4cfb2889160fd6579500c88330de872 -e
 |  i-095c6b04cca499258 |  t2.nano      |  None |  34.195.199.207 |  stopped  |
 +----------------------+---------------+-------+-----------------+-----------+
 [Pipeline] }
-$ docker stop --time=1 6ddd50f5749885c382bf73e90380729cf4cfb2889160fd6579500c88330de872
-$ docker rm -f 6ddd50f5749885c382bf73e90380729cf4cfb2889160fd6579500c88330de872
+$ docker stop --time=1 7c5e68a3e63db7c009685221fc37d4a94bdc7b8bda14e41532f05117f940a008
+$ docker rm -f 7c5e68a3e63db7c009685221fc37d4a94bdc7b8bda14e41532f05117f940a008
 [Pipeline] // withDockerContainer
 [Pipeline] isUnix
 [Pipeline] withEnv
@@ -401,13 +442,13 @@ $ docker rm -f 6ddd50f5749885c382bf73e90380729cf4cfb2889160fd6579500c88330de872
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top bca5646f58440b7885347ab29f2c8c62149264ab065b96f7d5f9fb406ebfec86 -eo pid,comm
+$ docker top b2ffcb9fd57bc07f1a6fee67806cf2fa5c64ede605d6ccb2754eb1758172d4d1 -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 modify-instance-attribute --instance-id i-095c6b04cca499258 --instance-type '{"Value": "t2.micro"}'
 [Pipeline] }
-$ docker stop --time=1 bca5646f58440b7885347ab29f2c8c62149264ab065b96f7d5f9fb406ebfec86
-$ docker rm -f bca5646f58440b7885347ab29f2c8c62149264ab065b96f7d5f9fb406ebfec86
+$ docker stop --time=1 b2ffcb9fd57bc07f1a6fee67806cf2fa5c64ede605d6ccb2754eb1758172d4d1
+$ docker rm -f b2ffcb9fd57bc07f1a6fee67806cf2fa5c64ede605d6ccb2754eb1758172d4d1
 [Pipeline] // withDockerContainer
 [Pipeline] isUnix
 [Pipeline] withEnv
@@ -420,7 +461,7 @@ $ docker rm -f bca5646f58440b7885347ab29f2c8c62149264ab065b96f7d5f9fb406ebfec86
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top bcf6d244f1469fd0f10f9c1f3ba8631cdc0a165f0e1b4d6c2e9425c2a8bde003 -eo pid,comm
+$ docker top 516ccd93dcbf27816185759b3ac4643ebf68fae6480baa94e4a7847b5cf0840a -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 start-instances --instance-ids i-095c6b04cca499258
@@ -440,8 +481,8 @@ $ docker top bcf6d244f1469fd0f10f9c1f3ba8631cdc0a165f0e1b4d6c2e9425c2a8bde003 -e
     ]
 }
 [Pipeline] }
-$ docker stop --time=1 bcf6d244f1469fd0f10f9c1f3ba8631cdc0a165f0e1b4d6c2e9425c2a8bde003
-$ docker rm -f bcf6d244f1469fd0f10f9c1f3ba8631cdc0a165f0e1b4d6c2e9425c2a8bde003
+$ docker stop --time=1 516ccd93dcbf27816185759b3ac4643ebf68fae6480baa94e4a7847b5cf0840a
+$ docker rm -f 516ccd93dcbf27816185759b3ac4643ebf68fae6480baa94e4a7847b5cf0840a
 [Pipeline] // withDockerContainer
 [Pipeline] sh
 + sleep 25
@@ -456,7 +497,7 @@ $ docker rm -f bcf6d244f1469fd0f10f9c1f3ba8631cdc0a165f0e1b4d6c2e9425c2a8bde003
 [Pipeline] withDockerContainer
 Jenkins does not seem to be running inside a container
 $ docker run -t -d -u 995:993 --entrypoint  -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -w /var/lib/jenkins/workspace/Opstree-pipeline -v /var/lib/jenkins/workspace/Opstree-pipeline:/var/lib/jenkins/workspace/Opstree-pipeline:rw,z -v /var/lib/jenkins/workspace/Opstree-pipeline@tmp:/var/lib/jenkins/workspace/Opstree-pipeline@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** releaseworks/awscli:latest cat
-$ docker top 55fc93b0cad9a4cddc960c97cba80bad67219e556737912be3b0943c11f0cfb6 -eo pid,comm
+$ docker top c640be6413ddb70eadbbceceeab565065531b8512f672ba7d4844cf821b171ac -eo pid,comm
 [Pipeline] {
 [Pipeline] sh
 + aws '--region=us-east-1' ec2 describe-instances --instance-ids i-095c6b04cca499258 --query 'Reservations[*].Instances[*].{PublicIP: PublicIpAddress, Name:Tags[?Key== Name]|[0].Value,Status:State.Name,InstanceID:InstanceId,Instancetype:InstanceType}' --output table
@@ -468,8 +509,8 @@ $ docker top 55fc93b0cad9a4cddc960c97cba80bad67219e556737912be3b0943c11f0cfb6 -e
 |  i-095c6b04cca499258 |  t2.micro     |  None |  34.195.199.207 |  running  |
 +----------------------+---------------+-------+-----------------+-----------+
 [Pipeline] }
-$ docker stop --time=1 55fc93b0cad9a4cddc960c97cba80bad67219e556737912be3b0943c11f0cfb6
-$ docker rm -f 55fc93b0cad9a4cddc960c97cba80bad67219e556737912be3b0943c11f0cfb6
+$ docker stop --time=1 c640be6413ddb70eadbbceceeab565065531b8512f672ba7d4844cf821b171ac
+$ docker rm -f c640be6413ddb70eadbbceceeab565065531b8512f672ba7d4844cf821b171ac
 [Pipeline] // withDockerContainer
 [Pipeline] }
 [Pipeline] // withCredentials
