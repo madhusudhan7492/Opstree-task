@@ -68,7 +68,7 @@ pipeline {
     }
 
     //stop the instance the change the instance type to t2.micro
-    stage("Stop the instance and flip back to previous instance type") {
+    stage("Stop the instance and flip back to previous instance type and start the instance") {
       steps {
         withCredentials([
           [$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']
